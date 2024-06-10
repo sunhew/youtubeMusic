@@ -1,0 +1,259 @@
+/* 기본 스타일 설정 */
+#aside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: var(--white);
+    box-shadow: 0 0 10px var(--white300);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* 현재 재생 중인 노래 정보 */
+    .play-now {
+        padding: 2rem;
+
+        h2 {
+            text-align: center;
+            font-size: 1rem;
+            font-family: var(--J);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                margin-right: 8px;
+            }
+        }
+
+        /* 노래 썸네일과 정보 */
+        .thumb {
+            text-align: center;
+
+            .img {
+                width: 100%;
+                height: 200px;
+                background-color: var(--white200);
+                display: block;
+                border-radius: 12px;
+                margin-bottom: 10px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    background-color: transparent;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            .title {
+                color: var(--pointcolor2);
+                font-size: 23px;
+                font-weight: 900;
+                margin-right: 10px;
+                text-align: center;
+                display: block;
+                margin-bottom: 0;
+            }
+
+            .artist {
+                text-align: center;
+                display: block;
+                font-size: 1rem;
+                color: var(--black);
+                margin-top: 5px;
+            }
+        }
+
+        /* 진행 바 */
+        .progress {
+            margin-top: 1rem;
+
+            .progress-bar {
+                input {
+                    width: 100%;
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: var(--pointcolor1hover);
+                    height: 5px;
+                    border-radius: 5px;
+                    outline: none;
+                    cursor: pointer;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 15px;
+                        height: 15px;
+                        background: var(--pointcolor1);
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .times {
+                display: flex;
+                justify-content: space-between;
+                font-size: 18px;
+                color: var(--black500);
+                font-weight: 900;
+                margin-top: 5px;
+            }
+        }
+
+        /* 노래 컨트롤 바 */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            border-bottom: 1px solid var(--white200);
+            padding-bottom: 1rem;
+
+            .shuffle.active {
+                svg {
+                    color: #7D57FF;
+                }
+            }
+
+            .repeat.repeat-one {
+                svg {
+                    color: #FF5757;
+                }
+            }
+
+            .repeat.repeat-all {
+                svg {
+                    color: #57FF57;
+                }
+            }
+
+            >span {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50px;
+                margin: 0 6px;
+                text-align: center;
+                padding: 9px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    color: #989898;
+                }
+
+                &.bg {
+                    background: linear-gradient(90deg, #5779FF 0%, #7E56FF 100%);
+
+                    svg {
+                        color: #fff;
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--pointcolor1hover);
+                }
+            }
+        }
+
+        /* 볼륨 조절 */
+        .volume {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+            input {
+                width: 60%;
+                height: 5px;
+                background-color: #000;
+                outline: none;
+                cursor: pointer;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    background: var(--pointcolor1);
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    /* 플레이 리스트 */
+    .play-list {
+        position: relative;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+
+        h3 {
+            font-size: 1.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+
+            svg {
+                margin-right: 8px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                text-align: left;
+
+                .img {
+                    width: 45px;
+                    height: 45px;
+                    background-color: var(--white200);
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 8px;
+                    margin-right: 10px;
+                }
+
+                .title {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: var(--black);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
+
+/* 컨트롤 버튼 스타일 */
+.controls .active svg,
+.controls .repeat.repeat-one svg,
+.controls .repeat.repeat-all svg {
+    color: #7D57FF;
+}

@@ -1,0 +1,41 @@
+:root {
+    --J: "theJamsil";
+    --G: "eduSaeeum";
+    --B: "baskinRobbins";
+
+    --pointcolor1: #d7f1fc;
+    --pointcolor1hover: #e9f8ff;
+    --pointcolor2: #8adfd3;
+
+    --black: #000;
+    --black100: #111;
+    --black200: #222;
+    --black300: #333;
+    --black400: #444;
+    --black500: #555;
+
+    --white: #fff;
+    --white100: #f7f7f7;
+    --white200: #f0f0f0;
+    --white300: #cccccc;
+    --white400: #c1c1c1;
+    --white500: #858585;
+
+    // 폰트 셋팅
+    font-family: var(--G), var(--J), var(--B);
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    // 폰트 최적화
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    @media (max-width: 800px) {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
